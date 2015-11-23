@@ -1,0 +1,67 @@
+//- userinput.jade
+extends ./layout.jade
+
+block row-content
+  div.service-container.top-buffer.row.col-lg-8.aligncenter
+    div.row
+      div.col-lg-12.col-xs-12
+        h2.align-left.bottom-buffer Interact with the screen
+        div.highlight
+          div.row
+            div.col-lg-12.col-xs-12
+              h3 Send commands to the screen
+            div.row
+              div.col-lg-4.col-xs-4
+                p.help-block Click on the microphone icon to start talking
+              div.col-lg-3.col-lg-offset-2.col-xs-6
+                div#microphone.mic
+            div.row
+              div.col-lg-12.col-xs-12
+                div#result
+                div#info
+                div#error
+            div.row
+              div.col-lg-12.col-xs-12
+                label.btn.btn-primary#fetchPage Fetch page
+        div.highlight
+          div.row
+            div.col-lg-12.col-xs-12.col-xs-12
+              h3 Send an image to the screen
+            div.row
+              div.col-lg-12
+                p.help-block Click on one of the buttons below to upload an image or take a selfie
+            div.row.upload
+              div.col-lg-4.col-xs-6
+                form.form-inline(action="#", enctype="multipart/form-data", method="post")
+                  div.form-group
+                    label.btn.btn-primary(for='file-selector') Get Image
+                    input#file-selector.connected(type='file', style='display:none;', disabled="true")
+              div.col-lg-4.col-xs-6
+                form.form-inline(action="#", enctype="multipart/form-data", method="post")
+                  div.form-group
+                    label.btn.btn-primary(for='file-selector-selfie') Take selfie
+                    input#file-selector-selfie.connected(type='file', style='display:none;', accept="image/*", capture="camera", disabled="true")
+            div.row.uploading.text-center(style="display:none;")
+              p Loading image...
+              img(src='http://www.dfs.co.uk/wcsstore/DFSStorefrontAssetStore/images/dfs/icons/icon_loading.gif')
+      div.row
+        div.col-lg-12.col-xs-12
+          div.connecting
+            h3 Connecting to Screen
+            div.text-center
+              img(src='http://www.dfs.co.uk/wcsstore/DFSStorefrontAssetStore/images/dfs/icons/icon_loading.gif')
+          div.loading(style='display:none;')
+            h2 Sending results to screen
+            div.text-center
+              img(src='images/watson.gif', width='110px')
+          div.row.results(style='display:none')
+            #output.container.results(style='display:none')
+          div.error(style='display:none;')
+            h2 Error
+            div.well
+              div.errorMsg
+
+  script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+  script(type='text/javascript', src='http://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz')
+  script(type='text/javascript', src='/js/microphone/microphone.min.js')
+  script(type='text/javascript', src='/js/userinput.js')

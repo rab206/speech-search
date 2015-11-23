@@ -1,0 +1,50 @@
+//- gallery.jade
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='/images/favicon.ico', type='image/x-icon')
+    
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/plp.css')
+    link(rel='stylesheet', href='/css/banner.css')
+    link(rel='stylesheet', href='/css/style.css')
+
+  body
+    div(style="overflow-x:hidden")
+      .container-fluid
+        .row
+          .col-xs-2
+            .product_images
+              .carousel
+                .pagination.thumbnail.vertical
+                  ol.paging_slider
+                    each i, index in p.images
+                      li
+                        - var className = (index === 0) ? 'active' : ''
+                        img.image.img-thumbnail.img-responsive(src="#{i.url}", class=className)
+          .col-xs-6
+            img.img-thumbnail.img-responsive(title='#{p.name}', src='#{p.primaryImage.url}')
+          .col-xs-4
+            .row
+              .col-xs-12
+                h1.name #{p.range}
+                h2.summary #{p.name}
+            .row
+              .col-xs-12
+                .product_selection
+                  .colour
+                    span Colours
+                    span.value
+                      .colour_picker
+                        ul.colours
+                          each colour in p.colourDataList
+                            - var className = (colour.selected) ? 'selected' : ''
+                            li(class=className)
+                              span(style="background-color: ##{colour.hexColour}") #{colour.name}
+                    p.colour_name Currently shown:  #{p.colourName}
+                    

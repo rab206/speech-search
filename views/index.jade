@@ -1,0 +1,36 @@
+//- index.jade
+extends ./layout.jade
+
+block row-content
+  div.container-fluid
+    div.row
+      div.col-sm-3.col-md-2.sidebar
+        div.sidebar-background
+          .nav-sidebar-header Try these commands
+          ul.nav.nav-sidebar#defaultExamples
+          ul.nav.nav-sidebar#examples
+    div.row
+      div.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+        div.connecting
+          h2 Connecting to Microphone
+          div.row
+            div.col-lg-12.col-xs-12.text-center
+              img(src='http://www.dfs.co.uk/wcsstore/DFSStorefrontAssetStore/images/dfs/icons/icon_loading.gif')
+        div.loading(style='display:none;')
+          h2 Loading Response
+          div.row
+            div.col-lg-12.col-xs-12.text-center
+              img(src='images/watson.gif', width='110px')
+        div.row.results(style='overflow: hidden; display:none')
+          #output.col-lg-12
+        div.error(style='display:none;')
+          h2 Error
+          div.well
+            div.errorMsg
+  
+  script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+  script(type='text/javascript', src='http://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz')
+  script(type='text/javascript', src='/js/index.js')
+      
+  
+  

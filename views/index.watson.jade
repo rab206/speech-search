@@ -1,0 +1,29 @@
+//- index.jade
+extends ./layout.jade
+
+block row-content
+  #output.container.results(style='display:none')
+  div.container
+    div.row
+      div.col-lg-12
+        h2 Try the Service
+        div.row.loading(style='display:none')
+          div.col-lg-12.col-xs-12.text-center
+            img(src='images/watson.gif', width='110px')
+        div.row.results(style='display:none')
+        div.error(style='display:none;')
+          h2 Error
+          div.well
+            div.errorMsg
+      div.col-lg-12
+        div.row
+          div.col-lg-8.col-md-8.col-xs-8
+            input.questionText.form-control(placeholder='Enter a command or Try a sample question below', required='true')
+          div.col-lg-2.col-md-2.col-xs-2
+            button.btn.btn-block.ask-btn Ask
+        div.row
+            h4 Sample questions
+            div.example-questions
+      
+  
+  

@@ -1,0 +1,33 @@
+//- gallery.jade
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='/images/favicon.ico', type='image/x-icon')
+    
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/plp.css')
+    link(rel='stylesheet', href='/css/banner.css')
+    link(rel='stylesheet', href='/css/style.css')
+
+  body
+    div(style="overflow-x:hidden")
+      .container-fluid
+        ul#productList.row
+          if products.length > 0
+            each p in products
+              li.col-xs-4
+                .row
+                  .col-xs-12
+                    input(type="hidden", id="url" value="http://www.tedbaker.com#{p.url}")
+                    a(href='/pdp?code=#{p.code}')
+                      img.img-thumbnail.img-responsive(title='#{p.name}', src='#{p.primaryImage.url}')
+                  .col-xs-12
+                    | #{p.range} #{p.name} #{p.price.formattedValue}
+          else
+            li.col-xs-12
+              h2 No more results
