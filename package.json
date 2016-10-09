@@ -1,7 +1,7 @@
 {
-  "name": "TedProjectorApp",
+  "name": "ProjectorApp",
   "version": "0.0.1",
-  "description": "A sample nodejs app for Bluemix that use the Natural Language Classifier service",
+  "description": "",
   "dependencies": {
     "body-parser": "~1.10.2",
     "errorhandler": "~1.3.4",
